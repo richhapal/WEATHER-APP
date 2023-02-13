@@ -1,0 +1,49 @@
+$primary-color: #edf2f7;
+$primary-color-light: #2d2f318c;
+.navigation {
+     font-size: 1.3rem;
+     align-content: center;
+     box-sizing: border-box;
+     // max-width: 8rem;
+     max-width: fit-content;
+     min-height: 96vh;
+     //  max-height: 100%;
+     background-color: $primary-color;
+     border-radius: 20px;
+     box-shadow: 0 10px 10px $primary-color;
+     // margin: 1.5rem;
+     text-align: center;
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     align-items: center;
+     gap: 2rem;
+     padding-top: 3rem;
+     padding: 3rem 1rem;
+
+     .logo {
+          display: inline-block;
+          background-color: #cbd5e0;
+          border-radius: 5px;
+          padding: 0.2rem 0.5rem;
+          font-size: 3.5rem;
+          color: rgba(65, 65, 255, 0.836);
+     }
+
+     &-items {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+     }
+
+     .selected {
+          font-weight: 900;
+          font-size: 1.5rem;
+     }
+
+     .not-selected {
+          font-weight: 800;
+          color: $primary-color-light;
+     }
+}
