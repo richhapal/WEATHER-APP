@@ -15,6 +15,36 @@ const WeeklyContent = () => {
                          <Box className="weeklyWeatherDivision-row_weather">ICON</Box>
                          <Box className="weeklyWeatherDivision-row_temp">25/21</Box>
                     </Box>
+                    <Box className="weeklyWeatherDivision-row">
+                         <Box className="weeklyWeatherDivision-row_day">Monday</Box>
+                         <Box className="weeklyWeatherDivision-row_weather">ICON</Box>
+                         <Box className="weeklyWeatherDivision-row_temp">25/21</Box>
+                    </Box>
+                    <Box className="weeklyWeatherDivision-row">
+                         <Box className="weeklyWeatherDivision-row_day">Monday</Box>
+                         <Box className="weeklyWeatherDivision-row_weather">ICON</Box>
+                         <Box className="weeklyWeatherDivision-row_temp">25/21</Box>
+                    </Box>
+                    <Box className="weeklyWeatherDivision-row">
+                         <Box className="weeklyWeatherDivision-row_day">Monday</Box>
+                         <Box className="weeklyWeatherDivision-row_weather">ICON</Box>
+                         <Box className="weeklyWeatherDivision-row_temp">25/21</Box>
+                    </Box>
+                    <Box className="weeklyWeatherDivision-row">
+                         <Box className="weeklyWeatherDivision-row_day">Monday</Box>
+                         <Box className="weeklyWeatherDivision-row_weather">ICON</Box>
+                         <Box className="weeklyWeatherDivision-row_temp">25/21</Box>
+                    </Box>
+                    <Box className="weeklyWeatherDivision-row">
+                         <Box className="weeklyWeatherDivision-row_day">Monday</Box>
+                         <Box className="weeklyWeatherDivision-row_weather">ICON</Box>
+                         <Box className="weeklyWeatherDivision-row_temp">25/21</Box>
+                    </Box>
+                    <Box className="weeklyWeatherDivision-row">
+                         <Box className="weeklyWeatherDivision-row_day">Monday</Box>
+                         <Box className="weeklyWeatherDivision-row_weather">ICON</Box>
+                         <Box className="weeklyWeatherDivision-row_temp">25/21</Box>
+                    </Box>
                </Box>
           </Box>
      );

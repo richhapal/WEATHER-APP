@@ -5,4 +5,12 @@
      width: 85vw;
      gap: 1rem;
      max-width: 85vw;
+
+     @media screen and (max-width: 1024px) {
+          flex-direction: column;
+     }
+     @media screen and (max-width: 775px) {
+          max-width: 100%;
+          width: 100%;
+     }
 }

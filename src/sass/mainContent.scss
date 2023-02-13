@@ -9,6 +9,10 @@ $primary-color-light: #2d2f318c;
      // gap: 1rem;
      width: 70%;
      justify-content: space-between;
+
+     @media screen and (max-width: 1024px) {
+          width: 100%;
+     }
 }
 
 .mainContent-search {

@@ -7,4 +7,33 @@ $primary-color-light: #2d2f318c;
      background-color: $primary-color;
      padding: 2rem;
      width: 30%;
+
+     @media screen and (max-width: 1024px) {
+          width: 100%;
+     }
+
+     &-data {
+          height: 90%;
+          margin-top: 2rem;
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          @media screen and (max-width: 1024px) {
+               gap: 3rem;
+          }
+     }
+
+     &-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex: 1;
+     }
+
+     &-row_day,
+     &-row_temp {
+          font-size: 1.5rem;
+     }
 }

@@ -21,6 +21,21 @@ $primary-color-light: #2d2f318c;
      padding-top: 3rem;
      padding: 3rem 1rem;
 
+     @media screen and (max-width: 775px) {
+          max-width: 100%;
+          min-height: min-content;
+          flex-direction: row;
+          align-items: center;
+          box-shadow: none;
+          gap: 2rem;
+          flex: 1;
+          justify-content: space-evenly;
+          padding: 1rem 1rem;
+          align-items: center;
+          width: 100%;
+          margin-bottom: 2rem;
+     }
+
      .logo {
           display: inline-block;
           background-color: #cbd5e0;
