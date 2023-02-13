@@ -1,5 +1,8 @@
 .Weather {
-     flex: 1;
+     flex: 1 1;
      display: flex;
-     // padding: 2rem;
+     /* padding: 2rem; */
+     width: 85vw;
+     gap: 1rem;
+     max-width: 85vw;
 }

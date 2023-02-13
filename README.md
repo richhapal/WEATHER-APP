@@ -1,1 +1,1 @@
-<h2>Welcome to Weather-App</h2>
+<h2 align="center">Welcome to Weather-App</h2>

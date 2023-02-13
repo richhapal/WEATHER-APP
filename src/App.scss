@@ -1,8 +1,11 @@
 .app {
      display: flex;
      flex-direction: row;
-     gap: 5rem;
+     // gap: 5rem;
+     justify-content: space-evenly;
      margin: 2rem;
+     height: 100%;
+     max-height: calc(100vh - 4rem);
 }
 
 @media (prefers-reduced-motion: no-preference) {

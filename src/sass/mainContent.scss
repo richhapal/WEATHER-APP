@@ -2,13 +2,13 @@ $primary-color: #edf2f7;
 $primary-color-light: #2d2f318c;
 
 .mainContent {
-     // max-width: 80%;
-     padding: 3rem;
-     //  flex: 0 1 80%;
+     // padding: 3rem;
      border-radius: 20px;
      display: flex;
      flex-direction: column;
-     gap: 1rem;
+     // gap: 1rem;
+     width: 70%;
+     justify-content: space-between;
 }
 
 .mainContent-search {

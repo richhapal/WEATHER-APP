@@ -31,7 +31,7 @@ const MainContent = () => {
                {/* DAILY WEATHER FORECAST */}
                <Box className="dailyWeatherForeCast">
                     <Box className="dailyWeatherForeCast-heading">
-                         <h4>today's forecast</h4>
+                         <h4>Today's Forecast</h4>
                     </Box>
                     <Box className="dailyWeatherForeCast-data">
                          {data.map((item) => (
@@ -46,7 +46,7 @@ const MainContent = () => {
                {/* AIR CONDITIONS */}
                <Box className="airConditionDivision">
                     <Box className="airConditionDivision-heading">
-                         <h4>air conditions</h4>
+                         <h4>Air Conditions</h4>
                     </Box>
                     <Box className="airConditionDivision-row">
                          <Box className="column">
