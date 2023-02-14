@@ -5,10 +5,10 @@ import "../../sass/weather.scss";
 import WeeklyContent from "./WeeklyContent";
 const Weather = () => {
      return (
-          <Box className="Weather">
+          <section className="Weather">
                <MainContent />
                <WeeklyContent />
-          </Box>
+          </section>
      );
 };
 export default Weather;

@@ -1,14 +1,19 @@
-import { Box } from "@chakra-ui/react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "./App.scss";
-
 import Navigation from "./components/Navigation/Navigation";
 import Weather from "./components/Weather/Weather";
+import NoCityFound from "./helper/NoCityFound";
+
 function App() {
+     const lat = useSelector((state) => state.weatherReducer.lat);
+     const long = useSelector((state) => state.weatherReducer.long);
      return (
-          <Box className="app">
+          <section className="app">
                <Navigation />
-               <Weather />
-          </Box>
+               {lat && long && <Weather />}
+               {!lat && !long && <NoCityFound />}
+          </section>
      );
 }
 

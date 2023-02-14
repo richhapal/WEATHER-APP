@@ -1,95 +1,99 @@
-import { Box } from "@chakra-ui/react";
 import React from "react";
 import "../../sass/mainContent.scss";
 import logo from "../../images/sunny.png";
 import { FaSun, FaWind, FaTemperatureHigh } from "react-icons/fa";
 import { ImDroplet } from "react-icons/im";
-
+import { useSelector } from "react-redux";
 const data = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 const MainContent = () => {
+     const cityName = useSelector((state) => state.weatherReducer.cityName);
+     const weatherStandardUnitIcon = useSelector((state) => state.weatherReducer.weatherStandardUnitIcon);
+     const currentCityWeatherData = useSelector((state) => state.weatherReducer.currentCityWeatherData);
+     const hourlyCityTempWeatherData = useSelector((state) => state.weatherReducer.hourlyCityTempWeatherData);
      return (
-          <Box className="mainContent">
+          <section className="mainContent">
                {/* CITY SEARCH BAR */}
-               <Box className="mainContent-search">
+               <div className="mainContent-search">
                     <input type="text" className="mainContent-search__input" placeholder="Enter Your City" />
-               </Box>
+               </div>
                {/* CITY DETAILS DIVISION */}
-               <Box className="cityDetailsDivision">
-                    <Box className="cityDetailsDivision-city">
-                         <Box className="cityName">
-                              <h2>Jodhpur</h2>
-                         </Box>
-                         <Box className="cityTemp">
-                              <h1>36</h1>
-                         </Box>
-                    </Box>
-                    <Box className="cityDetailsDivision-weatherlogo">
-                         <img src={logo} className="image" />
-                    </Box>
-               </Box>
+               <div className="cityDetailsDivision">
+                    <div className="cityDetailsDivision-city">
+                         <div className="cityName">
+                              <h2>{cityName}</h2>
+                         </div>
+                         <div className="cityTemp">
+                              <h2></h2>
+                         </div>
+                    </div>
+                    <div className="cityDetailsDivision-weatherlogo">
+                         {/* &{currentCityWeatherData.weather[0].icon} */}
+                         {/* <img src={logo} className="image" /> */}
+                    </div>
+               </div>
 
                {/* DAILY WEATHER FORECAST */}
-               <Box className="dailyWeatherForeCast">
-                    <Box className="dailyWeatherForeCast-heading">
+               <div className="dailyWeatherForeCast">
+                    <div className="dailyWeatherForeCast-heading">
                          <h4>Today's Forecast</h4>
-                    </Box>
-                    <Box className="dailyWeatherForeCast-data">
-                         {data.map((item) => (
-                              <Box className="dailyWeatherForeCast-data__items">
+                    </div>
+                    <div className="dailyWeatherForeCast-data">
+                         {hourlyCityTempWeatherData.map((item) => (
+                              <div className="dailyWeatherForeCast-data__items">
                                    <p>6.00 AM</p>
                                    <h4>ICON</h4>
-                                   <h4>25</h4>
-                              </Box>
+                                   <h4>{item}</h4>
+                              </div>
                          ))}
-                    </Box>
-               </Box>
+                    </div>
+               </div>
                {/* AIR CONDITIONS */}
-               <Box className="airConditionDivision">
-                    <Box className="airConditionDivision-heading">
+               <div className="airConditionDivision">
+                    <div className="airConditionDivision-heading">
                          <h4>Air Conditions</h4>
-                    </Box>
-                    <Box className="airConditionDivision-row">
-                         <Box className="column">
-                              <Box className="icon">
+                    </div>
+                    <div className="airConditionDivision-row">
+                         <div className="column">
+                              <div className="icon">
                                    <FaTemperatureHigh />
-                              </Box>
-                              <Box className="data">
+                              </div>
+                              <div className="data">
                                    <h4>Real Feel</h4>
                                    <h2>30</h2>
-                              </Box>
-                         </Box>
-                         <Box className="column">
-                              <Box className="icon">
+                              </div>
+                         </div>
+                         <div className="column">
+                              <div className="icon">
                                    <FaWind />
-                              </Box>
-                              <Box className="data">
+                              </div>
+                              <div className="data">
                                    <h4>Wind</h4>
                                    <h2>0.2km/h</h2>
-                              </Box>
-                         </Box>
-                    </Box>
-                    <Box className="airConditionDivision-row">
-                         <Box className="column">
-                              <Box className="icon">
+                              </div>
+                         </div>
+                    </div>
+                    <div className="airConditionDivision-row">
+                         <div className="column">
+                              <div className="icon">
                                    <ImDroplet />
-                              </Box>
-                              <Box className="data">
+                              </div>
+                              <div className="data">
                                    <h4>Change Of Rain</h4>
                                    <h2>3%</h2>
-                              </Box>
-                         </Box>
-                         <Box className="column">
-                              <Box className="icon">
+                              </div>
+                         </div>
+                         <div className="column">
+                              <div className="icon">
                                    <FaSun />
-                              </Box>
-                              <Box className="data">
+                              </div>
+                              <div className="data">
                                    <h4>UV Index</h4>
                                    <h2>3</h2>
-                              </Box>
-                         </Box>
-                    </Box>
-               </Box>
-          </Box>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </section>
      );
 };
 
