@@ -1,9 +1,9 @@
 import React from "react";
-
+import "../sass/noCityFound.scss";
 const NoCityFound = () => {
      return (
-          <div style={{ width: "85vw" }}>
-               <h1>No City Found</h1>
+          <div className="noCityFound">
+               <p>No City Found</p>
           </div>
      );
 };

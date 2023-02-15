@@ -1,15 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { API_KEY } from "../helper/config";
 const initialState = {
+     searchCity: "",
      cityName: "",
-     lat: "26.23",
-     long: "73.02",
-     enterCityName: "",
+     lat: "",
+     long: "",
+     cityListNames: false,
      weatherStandardUnit: "metric",
      weatherStandardUnitIcon: "°C",
      currentCityWeatherData: "",
-     // hourlyCityTimeWeatherData: "",
-     hourlyCityTempWeatherData: "",
+     hourlyCityTempWeatherData: [],
      weeklyCityWeatherData: "",
 };
 
@@ -17,6 +17,15 @@ const weatherSlice = createSlice({
      name: "weather",
      initialState,
      reducers: {
+          updateSearchCity(state, actions) {
+               state.searchCity = actions.payload;
+          },
+          updateSearchCityDetails(state, actions) {
+               // state.searchCity = actions.payload;
+          },
+          updateCityListNames(state, actions) {
+               state.cityListNames = actions.payload;
+          },
           updateCityName(state, actions) {
                state.cityName = actions.payload;
           },
@@ -26,9 +35,6 @@ const weatherSlice = createSlice({
           updateWeeklyCityWeatherData(state, actions) {
                state.weeklyCityWeatherData = actions.payload;
           },
-          // updateHourlyCityTimeWeatherData(state, actions) {
-          //      state.hourlyCityTimeWeatherData = actions.payload;
-          // },
           updateHourlyCityTempWeatherData(state, actions) {
                state.hourlyCityTempWeatherData = actions.payload;
           },
@@ -38,10 +44,10 @@ const weatherSlice = createSlice({
 export const callCurrentWeatherApi = (lat, long) => {
      return async (dispatch) => {
           const fetchApi = async () => {
-               const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_KEY}&units=metric`;
-               const currentCityWeatherResponse = await fetch(URL);
-               const result = await currentCityWeatherResponse.json();
-               dispatch(weatherActions.updateCurrentCityWeatherData(result));
+               // const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_KEY}&units=metric`;
+               // const currentCityWeatherResponse = await fetch(URL);
+               // const result = await currentCityWeatherResponse.json();
+               // dispatch(weatherActions.updateCurrentCityWeatherData(result));
           };
           await fetchApi();
      };
@@ -49,9 +55,9 @@ export const callCurrentWeatherApi = (lat, long) => {
 export const callWeeklyWeatherApi = (cityName) => {
      return async (dispatch) => {
           const fetchApi = async () => {
-               const URL = `https://api.tomorrow.io/v4/weather/forecast?location=${cityName}&timesteps=1d&apikey=${API_KEY}`;
-               const weeklyCityWeatherResponse = await fetch(URL);
-               const result = await weeklyCityWeatherResponse.json();
+               // const URL = `https://api.tomorrow.io/v4/weather/forecast?location=${cityName}&timesteps=1d&apikey=${API_KEY}`;
+               // const weeklyCityWeatherResponse = await fetch(URL);
+               // const result = await weeklyCityWeatherResponse.json();
                // console.log("result", result);
                // dispatch(weatherActions.updateWeeklyCityWeatherData(result.timelines.daily));
           };
@@ -63,14 +69,46 @@ export const callHourlyWeatherApi = (lat, long) => {
           const fetchApi = async () => {
                const URL = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&hourly=temperature_2m&current_weather=true`;
                const weeklyCityWeatherResponse = await fetch(URL);
-               // console.log(weeklyCityWeatherResponse);
                const result = await weeklyCityWeatherResponse.json();
                const time = result.hourly.time.slice(0, 24);
                const temp = result.hourly.temperature_2m.slice(0, 24);
-               dispatch(weatherActions.updateHourlyCityTempWeatherData(temp));
-               // dispatch(weatherActions.updateHourlyCityTimeWeatherData(time));
+               let data = [];
+               // console.log(time);
+               for (let i = 0; i < temp.length; i++) {
+                    const localTime = new Date(time[i]).toLocaleTimeString();
+                    let times;
+                    if (localTime.length % 2 == 0) {
+                         times = localTime.slice(0, 4) + localTime.slice(7);
+                    } else {
+                         times = localTime.slice(0, 5) + localTime.slice(8);
+                    }
+                    let item = {
+                         id: i,
+                         time: times,
+                         temp: temp[i],
+                    };
+
+                    data.push(item);
+               }
+
+               // console.log(data);
+
+               dispatch(weatherActions.updateHourlyCityTempWeatherData(data));
           };
           await fetchApi();
+     };
+};
+
+export const citySearchApi = (cityName) => {
+     return async (dispatch) => {
+          const fetchApi = async (name) => {
+               const URL = `https://geocoding-api.open-meteo.com/v1/search?name=${name}`;
+               const Response = await fetch(URL);
+               const cityList = await Response.json();
+               console.log("citySearchResult", cityList.results);
+               dispatch(weatherActions.updateCityListNames(cityList.results));
+          };
+          await fetchApi(cityName);
      };
 };
 
