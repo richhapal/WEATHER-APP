@@ -12,7 +12,6 @@ function App() {
           <section className="app">
                <Navigation />
                {<Weather />}
-               {/* {!lat && !long && <NoCityFound />} */}
           </section>
      );
 }

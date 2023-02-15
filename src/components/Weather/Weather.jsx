@@ -1,9 +1,9 @@
-import { Box } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import MainContent from "./MainContent";
 import "../../sass/weather.scss";
 import WeeklyContent from "./WeeklyContent";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { callCurrentWeatherApi, callHourlyWeatherApi, callWeeklyWeatherApi } from "../../redux/weatherSlice";
 const Weather = () => {
      const lat = useSelector((state) => state.weatherReducer.lat);
      const long = useSelector((state) => state.weatherReducer.long);

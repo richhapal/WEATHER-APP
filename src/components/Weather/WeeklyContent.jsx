@@ -4,20 +4,8 @@ import { callCurrentWeatherApi, callHourlyWeatherApi, callWeeklyWeatherApi } fro
 import "../../sass/weeklyweather.scss";
 
 const WeeklyContent = () => {
-     const currentCityWeatherData = useSelector((state) => state.weatherReducer.currentCityWeatherData);
      const weatherStandardUnit = useSelector((state) => state.weatherReducer.weatherStandardUnit);
-     const lat = useSelector((state) => state.weatherReducer.lat);
-     const long = useSelector((state) => state.weatherReducer.long);
      const weeklyCityWeatherData = useSelector((state) => state.weatherReducer.weeklyCityWeatherData);
-
-     const dispatch = useDispatch();
-     useEffect(() => {
-          if (!currentCityWeatherData) {
-               dispatch(callCurrentWeatherApi(lat, long));
-               dispatch(callWeeklyWeatherApi(lat, long));
-               dispatch(callHourlyWeatherApi(lat, long));
-          }
-     }, []);
 
      return (
           <div className="weeklyWeatherDivision">
@@ -26,13 +14,15 @@ const WeeklyContent = () => {
                </div>
 
                <div className="weeklyWeatherDivision-data">
-                    {/* {weeklyCityWeatherData.map((item, index) => (
-                         <div className="weeklyWeatherDivision-row" id={index} key={index}>
-                              <div className="weeklyWeatherDivision-row_day">Monday</div>
+                    {weeklyCityWeatherData.map((item) => (
+                         <div className="weeklyWeatherDivision-row" id={item.id} key={item.id}>
+                              <div className="weeklyWeatherDivision-row_day">{item.day}</div>
                               <div className="weeklyWeatherDivision-row_weather">ICON</div>
-                              <div className="weeklyWeatherDivision-row_temp">25/21</div>
+                              <div className="weeklyWeatherDivision-row_temp">
+                                   {item.tempMax}/{item.tempMin}
+                              </div>
                          </div>
-                    ))} */}
+                    ))}
                </div>
           </div>
      );
