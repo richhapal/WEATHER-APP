@@ -5,7 +5,7 @@
 </div>
 <br>
 
-<div align="center"><a  href="" >Live Preview >></a></div>
+<div align="center" font="bold"><a  href="" >Live Preview >></a></div>
 
 <br>
 <div >
