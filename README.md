@@ -5,7 +5,7 @@
 </div>
 <br>
 
-<div align="center" font="bold"><a  href="https://weather-richhapal.netlify.app/"  target="_blank"><h3>Live Preview 👉</h3></a></div>
+<div align="center" font="bold"><h3><a  href="https://weather-richhapal.netlify.app/"  target="_blank">Live Preview 👉</a></h3></div>
 
 <br>
 <div >
