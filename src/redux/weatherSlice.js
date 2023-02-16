@@ -77,7 +77,7 @@ export const callWeeklyWeatherApi = (lat, long, timezone) => {
                const URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&&exclude=hourly,minutely&units=metric&appid=${OPEN_WEATHER_API_KEY}`;
                const weeklyCityWeatherResponse = await fetch(URL);
                const result = await weeklyCityWeatherResponse.json();
-               // console.log("weekly weather data", result.daily);
+               console.log("weekly weather data", result);
                const data = result.daily;
                const resultData = [];
                const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -89,9 +89,10 @@ export const callWeeklyWeatherApi = (lat, long, timezone) => {
                          tempMin: data[i].temp.min,
                          day: i == 0 ? "Today" : days[day],
                          condition: data[i].weather[0].main,
+                         icon: data[i].weather[0].icon + ".png",
                     };
                     resultData.push(dailyData);
-                    console.log("condition", data[i].weather[0].main);
+                    // console.log("condition", data[i].weather[0].main);
                }
                // console.log("condition");
                dispatch(weatherActions.updateWeeklyCityWeatherData(resultData));
