@@ -24,6 +24,11 @@ const weatherSlice = createSlice({
           updateCityListNames(state, actions) {
                state.cityListNames = actions.payload;
           },
+          updateFromLocalStorage(state, actions) {
+               state.cityName = actions.payload.cityName;
+               state.lat = actions.payload.lat;
+               state.long = actions.payload.long;
+          },
           updateSearchSelectedCity(state, actions) {
                const { cityName, lat, long, timezone } = actions.payload;
                console.log(cityName, lat, long);
@@ -76,7 +81,6 @@ export const callWeeklyWeatherApi = (lat, long, timezone) => {
                const data = result.daily;
                const resultData = [];
                const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
                for (let i = 0; i < 8; i++) {
                     let day = new Date(data[i].dt * 1000).getDay();
                     let dailyData = {

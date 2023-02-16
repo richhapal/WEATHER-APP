@@ -9,6 +9,7 @@ const SearchCityName = () => {
      const searchCity = useSelector((state) => state.weatherReducer.searchCity);
      const cityListNames = useSelector((state) => state.weatherReducer.cityListNames);
      const noCityFound = useSelector((state) => state.weatherReducer.noCityFound);
+     const lat = useSelector((state) => state.weatherReducer.lat);
      const dispatch = useDispatch();
      const handleSearchCity = (e) => {
           dispatch(weatherActions.updateSearchCity(e.target.value));
@@ -28,7 +29,7 @@ const SearchCityName = () => {
                     </div>
                     <div className="mainContent-search_cityList">
                          {cityListNames && <SearchCityList />}
-                         {noCityFound && <NoCityFound />}
+                         {!lat && <NoCityFound />}
                     </div>
                </div>
           </>
