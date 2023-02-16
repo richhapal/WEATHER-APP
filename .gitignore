@@ -11,6 +11,11 @@
 # production
 /build
 
+## app-image
+
+/app-image
+
+
 # misc
 .DS_Store
 .env.local
