@@ -4,6 +4,7 @@ import { WiHumidity } from "react-icons/wi";
 import { useSelector } from "react-redux";
 const AirConditoinDivision = () => {
      const currentCityWeatherData = useSelector((state) => state.weatherReducer.currentCityWeatherData);
+     console.log("current city weather aircondition compoents", currentCityWeatherData);
      return (
           <div className="airConditionDivision">
                <div className="airConditionDivision-heading">

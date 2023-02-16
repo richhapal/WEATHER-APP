@@ -9,10 +9,6 @@ const SearchCityName = () => {
      const searchCity = useSelector((state) => state.weatherReducer.searchCity);
      const cityListNames = useSelector((state) => state.weatherReducer.cityListNames);
      const noCityFound = useSelector((state) => state.weatherReducer.noCityFound);
-     const lat = useSelector((state) => state.weatherReducer.lat);
-     const long = useSelector((state) => state.weatherReducer.long);
-     const timezone = useSelector((state) => state.weatherReducer.timezone);
-     const cityName = useSelector((state) => state.weatherReducer.cityName);
      const dispatch = useDispatch();
      const handleSearchCity = (e) => {
           dispatch(weatherActions.updateSearchCity(e.target.value));
@@ -24,15 +20,6 @@ const SearchCityName = () => {
           }
      }, [searchCity]);
 
-     useEffect(() => {
-          if (lat && long) {
-               dispatch(callCurrentWeatherApi(cityName));
-               dispatch(callWeeklyWeatherApi(lat, long, timezone));
-               console.log("call weekly weather api");
-               dispatch(callHourlyWeatherApi(lat, long));
-               console.log("call hourly weather api");
-          }
-     }, [lat, long]);
      return (
           <>
                <div className="mainContent-search">

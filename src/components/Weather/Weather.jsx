@@ -7,6 +7,19 @@ import { callCurrentWeatherApi, callHourlyWeatherApi, callWeeklyWeatherApi } fro
 const Weather = () => {
      const lat = useSelector((state) => state.weatherReducer.lat);
      const long = useSelector((state) => state.weatherReducer.long);
+     const timezone = useSelector((state) => state.weatherReducer.timezone);
+     const cityName = useSelector((state) => state.weatherReducer.cityName);
+     const dispatch = useDispatch();
+     useEffect(() => {
+          if (lat && long) {
+               dispatch(callCurrentWeatherApi(cityName));
+               console.log("call current weather api useEffect");
+               dispatch(callWeeklyWeatherApi(lat, long, timezone));
+               console.log("call weekly weather api useEffect");
+               dispatch(callHourlyWeatherApi(lat, long));
+               console.log("call hourly weather api useEffect");
+          }
+     }, [lat, long]);
      return (
           <section className="Weather">
                <MainContent />

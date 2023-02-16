@@ -33,7 +33,9 @@ $primary-color-light: #2d2f318c;
      }
 
      &-row_day,
+     &-row_weather,
      &-row_temp {
           font-size: 1.5rem;
+          flex: 1;
      }
 }

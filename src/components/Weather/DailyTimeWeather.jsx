@@ -6,6 +6,9 @@ const DailyTimeWeather = (props) => {
      const currentCityWeatherData = useSelector((state) => state.weatherReducer.currentCityWeatherData);
      const weatherStandardUnitIcon = useSelector((state) => state.weatherReducer.weatherStandardUnitIcon);
      const hourlyCityTempWeatherData = useSelector((state) => state.weatherReducer.hourlyCityTempWeatherData);
+
+     console.log("hourly time city weather data components", hourlyCityTempWeatherData);
+
      useEffect(() => {}, hourlyCityTempWeatherData);
      return (
           <div className="dailyWeatherForeCast">

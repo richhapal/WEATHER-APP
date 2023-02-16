@@ -17,8 +17,7 @@ const MainContent = () => {
           <section className="mainContent">
                <SearchCityName />
                {lat && long && <CityDetailsDivision />}
-               {console.log(hourlyCityTempWeatherData.length, lat, long, hourlyCityTempWeatherData)}
-               {hourlyCityTempWeatherData.length !== 0 && <DailyTimeWeather />}
+               {long && lat && <DailyTimeWeather />}
                {lat && long && <AirConditoinDivision />}
           </section>
      );

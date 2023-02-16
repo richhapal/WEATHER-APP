@@ -118,8 +118,15 @@ $primary-color-light: #2d2f318c;
 
           &__items {
                padding: 1rem;
+               min-width: fit-content;
                &:not(:last-child) {
                     border-right: 1px solid rgba(204, 204, 204, 0.986);
+               }
+
+               &--0 {
+                    display: flex;
+                    font-size: 15px;
+                    gap: 6px;
                }
           }
      }
