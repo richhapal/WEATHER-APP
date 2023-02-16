@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import SearchCityList from "./SearchCityList";
-import { callCurrentWeatherApi, callHourlyWeatherApi, callWeeklyWeatherApi, citySearchApi, weatherActions } from "../../redux/weatherSlice";
+import { weatherActions } from "../../redux/weatherSlice";
 import NoCityFound from "../../helper/NoCityFound";
+import { citySearchApi } from "../../redux/weatherActions";
 
 const SearchCityName = () => {
      const searchCity = useSelector((state) => state.weatherReducer.searchCity);

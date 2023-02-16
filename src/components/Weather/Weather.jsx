@@ -3,7 +3,8 @@ import MainContent from "./MainContent";
 import "../../sass/weather.scss";
 import WeeklyContent from "./WeeklyContent";
 import { useDispatch, useSelector } from "react-redux";
-import { callCurrentWeatherApi, callHourlyWeatherApi, callWeeklyWeatherApi, weatherActions } from "../../redux/weatherSlice";
+import { weatherActions } from "../../redux/weatherSlice";
+import { callCurrentWeatherApi, callHourlyWeatherApi, callWeeklyWeatherApi } from "../../redux/weatherActions";
 const Weather = () => {
      const lat = useSelector((state) => state.weatherReducer.lat);
      const long = useSelector((state) => state.weatherReducer.long);
@@ -23,7 +24,7 @@ const Weather = () => {
 
      useEffect(() => {
           if (lat && long) {
-               dispatch(callCurrentWeatherApi(cityName));
+               dispatch(callCurrentWeatherApi(lat, long));
                dispatch(callWeeklyWeatherApi(lat, long, timezone));
                dispatch(callHourlyWeatherApi(lat, long));
           }

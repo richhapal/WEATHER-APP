@@ -10,6 +10,9 @@ const CityDetailsDivision = () => {
                <div className="cityDetailsDivision-city">
                     <div className="cityName">
                          <h2>{cityName}</h2>
+                         <h4>
+                              <p>{currentCityWeatherData.main}</p>
+                         </h4>
                     </div>
                     <div className="cityTemp">
                          <h2>
@@ -19,8 +22,8 @@ const CityDetailsDivision = () => {
                     </div>
                </div>
                <div className="cityDetailsDivision-weatherlogo">
-                    {/* &{currentCityWeatherData.weather[0].icon} */}
-                    {/* <img src={logo} className="image" /> */}
+                    {console.log(currentCityWeatherData)}
+                    <img src={`../icons/${currentCityWeatherData.img}.png`} alt="weather icon" />
                </div>
           </div>
      );

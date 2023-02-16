@@ -10,10 +10,10 @@ export const HourlyWeatherRow = (props) => {
                          <BiTimeFive />
                          {props.time}
                     </div>
-                    <div className="dailyWeatherForeCast-data__items--0">
+                    {/* <div className="dailyWeatherForeCast-data__items--0">
                          <AiOutlineCloud />
                          <p>hi</p>
-                    </div>
+                    </div> */}
                     <div className="dailyWeatherForeCast-data__items--0">
                          <TbTemperature />
                          {props.temp}
