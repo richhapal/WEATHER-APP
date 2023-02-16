@@ -6,11 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { weatherActions } from "../../redux/weatherSlice";
 import { callCurrentWeatherApi, callHourlyWeatherApi, callWeeklyWeatherApi } from "../../redux/weatherActions";
 const Weather = () => {
-     const lat = useSelector((state) => state.weatherReducer.lat);
-     const long = useSelector((state) => state.weatherReducer.long);
-     const timezone = useSelector((state) => state.weatherReducer.timezone);
-     const cityName = useSelector((state) => state.weatherReducer.cityName);
+     const { lat, long, timezone, cityName } = useSelector((state) => state.weatherReducer);
      const dispatch = useDispatch();
+     useEffect(() => {}, [lat, long]);
 
      useEffect(() => {
           if (lat && long) {
@@ -20,9 +18,6 @@ const Weather = () => {
                let details = localStorage.getItem("cityDetail");
                details && dispatch(weatherActions.updateFromLocalStorage(JSON.parse(details)));
           }
-     }, [lat, long]);
-
-     useEffect(() => {
           if (lat && long) {
                dispatch(callCurrentWeatherApi(lat, long));
                dispatch(callWeeklyWeatherApi(lat, long, timezone));

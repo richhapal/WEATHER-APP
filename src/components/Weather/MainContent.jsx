@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "../../sass/mainContent.scss";
-import logo from "../../images/sunny.png";
-
 import { useSelector } from "react-redux";
 import DailyTimeWeather from "./DailyTimeWeather";
 import AirConditoinDivision from "./AirConditoinDivision";
@@ -9,10 +7,7 @@ import SearchCityName from "./SearchCityName";
 import CityDetailsDivision from "./CityDetailsDivision";
 
 const MainContent = () => {
-     const currentCityWeatherData = useSelector((state) => state.weatherReducer.currentCityWeatherData);
-     const lat = useSelector((state) => state.weatherReducer.lat);
-     const long = useSelector((state) => state.weatherReducer.long);
-     const hourlyCityTempWeatherData = useSelector((state) => state.weatherReducer.hourlyCityTempWeatherData);
+     const { lat, long } = useSelector((state) => state.weatherReducer);
      return (
           <section className="mainContent">
                <SearchCityName />

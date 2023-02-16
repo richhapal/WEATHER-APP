@@ -5,7 +5,6 @@ const initialState = {
      cityName: "",
      lat: "",
      long: "",
-     noCityFound: true,
      cityListNames: false,
      timezone: "",
      weatherStandardUnitIcon: "°C",
