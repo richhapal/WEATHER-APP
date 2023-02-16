@@ -18,9 +18,9 @@
 <div>
 <h3>🚀 Features</h3>
 <ul>
-<ol>Responsive Design To Support All Screen</ol>
-<ol>Recommend City Name During Search City Name</ol>
-<ol>Used Local Storage To Save City Name And Latitude & Longitude</ol>
-<ol>Update Weather Automatically After Every 1 Hour</ol>
+<li>Responsive Design To Support All Screen</li>
+<li>Recommend City Name During Search City Name</li>
+<li>Used Local Storage To Save City Name And Latitude & Longitude</li>
+<li>Update Weather Automatically After Every 1 Hour</li>
 </ul>
 </div>
