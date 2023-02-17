@@ -1,17 +1,32 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter, createBrowserRouter, createRoutesFromElements, Route, Router, RouterProvider, Routes, useRoutes } from "react-router-dom";
 import "./App.scss";
 import Navigation from "./components/Navigation/Navigation";
 import Weather from "./components/Weather/Weather";
-import NoCityFound from "./helper/NoCityFound";
+
+// const router = createBrowserRouter([]);
+
+// const routers = [
+//      {
+//           path: "",
+//           element: <Weather />,
+//      },
+//      {
+//           path: "map",
+//           element: <div>Hi</div>,
+//      },
+// ];
 
 function App() {
-     const lat = useSelector((state) => state.weatherReducer.lat);
-     const long = useSelector((state) => state.weatherReducer.long);
      return (
           <section className="app">
-               <Navigation />
-               {<Weather />}
+               <BrowserRouter>
+                    <Navigation />
+                    <Routes>
+                         <Route path="/" element={<Weather />} />
+                         <Route path="/cities" element={<h2>Cities</h2>} />
+                         <Route path="/map" element={<div>Hi</div>} />
+                    </Routes>
+               </BrowserRouter>
           </section>
      );
 }
