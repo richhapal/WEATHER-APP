@@ -9,34 +9,6 @@ let Navigation = () => {
 };
 export default Navigation;
 
-const WithoutNav = () => {
-     return (
-          <nav className="navigation ">
-               <div>
-                    <div className="navigation-items logo">
-                         <FaWind />
-                    </div>
-               </div>
-               <div className="navigation-items selected">
-                    <TiWeatherCloudy size={20} />
-                    <p>Weather</p>
-               </div>
-               <div className="navigation-items not-selected">
-                    <FaList size={20} />
-                    <p>Cities</p>
-               </div>
-               <div className="navigation-items not-selected">
-                    <FaMap size={20} />
-                    <p>Map</p>
-               </div>
-               <div className="navigation-items not-selected">
-                    <FiSettings size={20} />
-                    <p>Setting</p>
-               </div>
-          </nav>
-     );
-};
-
 const WithNav = () => {
      const location = useLocation();
      return (
@@ -51,17 +23,14 @@ const WithNav = () => {
                     <TiWeatherCloudy size={20} />
                     <p>Weather</p>
                </NavLink>
-
-               <NavLink to="cities" className={location.pathname === "/cities" ? "navigation-items selected" : "navigation-items no-selected"}>
-                    <FaList size={20} />
-                    <p>Cities</p>
-               </NavLink>
-
                <NavLink to="map" className={location.pathname === "/map" ? "navigation-items selected" : "navigation-items no-selected"}>
                     <FaMap size={20} />
                     <p>Map</p>
                </NavLink>
-
+               <NavLink to="cities" className={location.pathname === "/cities" ? "navigation-items selected" : "navigation-items no-selected"}>
+                    <FaList size={20} />
+                    <p>Cities</p>
+               </NavLink>
                <NavLink to="setting" className={location.pathname === "/setting" ? "navigation-items selected" : "navigation-items no-selected"}>
                     <FiSettings size={20} />
                     <p>Setting</p>

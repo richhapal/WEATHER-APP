@@ -1,6 +1,9 @@
 import { BrowserRouter, createBrowserRouter, createRoutesFromElements, Route, Router, RouterProvider, Routes, useRoutes } from "react-router-dom";
 import "./App.scss";
+import Cities from "./components/Cities/Cities";
+import Map from "./components/Map/Map";
 import Navigation from "./components/Navigation/Navigation";
+import Setting from "./components/Setting/Setting";
 import Weather from "./components/Weather/Weather";
 
 // const router = createBrowserRouter([]);
@@ -23,8 +26,9 @@ function App() {
                     <Navigation />
                     <Routes>
                          <Route path="/" element={<Weather />} />
-                         <Route path="/cities" element={<h2>Cities</h2>} />
-                         <Route path="/map" element={<div>Hi</div>} />
+                         <Route path="/cities" element={<Cities />} />
+                         <Route path="/map" element={<Map />} />
+                         <Route path="/setting" element={<Setting />} />
                     </Routes>
                </BrowserRouter>
           </section>
