@@ -14,6 +14,7 @@
 <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white" />
 <img src="https://img.shields.io/badge/restapi-20442A?style=for-the-badge&logo=restapi&logoColor=61DAFB" />
 <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white" />
+<img src="https://openweathermap.org/themes/openweathermap/assets/img/logo_white_cropped.png" height="26px" />
 </div>
 
 <br>
