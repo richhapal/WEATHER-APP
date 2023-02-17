@@ -44,6 +44,9 @@ $primary-color-light: #2d2f318c;
           padding: 2rem;
           font-size: 2rem;
           font-weight: 900;
+          @media screen and (max-width: 602px) {
+               padding: 3rem;
+          }
 
           &:active,
           &:checked,
@@ -156,5 +159,9 @@ $primary-color-light: #2d2f318c;
      &-data {
           display: flex;
           flex-direction: column;
+     }
+
+     @media screen and (max-width: 602px) {
+          // width: 100%;
      }
 }

@@ -9,10 +9,12 @@
 
      @media screen and (max-width: 990px) {
           margin: 1.5rem;
-          justify-content: space-between;
+          justify-content: space-evenly;
      }
      @media screen and (max-width: 775px) {
           flex-direction: column;
+          justify-content: space-between;
+          gap: 1rem;
      }
 }
 

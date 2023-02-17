@@ -1,22 +1,29 @@
 $primary-color: #edf2f7;
-$primary-color-light: #4b4c4d8c;
+$primary-color-light: #67696b8c;
 .navigation {
-     font-size: 1.3rem;
-     align-content: center;
-     box-sizing: border-box;
-     // max-width: 8rem;
-     max-width: fit-content;
      min-height: 96vh;
-     //  max-height: 100%;
      background-color: $primary-color;
      border-radius: 20px;
      box-shadow: 0 10px 10px $primary-color;
-     // margin: 1.5rem;
+     @media screen and (max-width: 775px) {
+          min-width: min-content;
+     }
+}
+
+.navLink {
+     font-size: 1.3rem;
+     box-sizing: border-box;
+     max-width: fit-content;
      text-align: center;
      display: flex;
      flex-direction: column;
      justify-content: flex-start;
+     align-content: center;
      align-items: center;
+     min-height: 96vh;
+     background-color: $primary-color;
+     border-radius: 20px;
+     box-shadow: 0 10px 10px $primary-color;
      gap: 2rem;
      padding-top: 3rem;
      padding: 3rem 1rem;
@@ -50,15 +57,17 @@ $primary-color-light: #4b4c4d8c;
           flex-direction: column;
           align-items: center;
           gap: 1rem;
+          color: $primary-color-light;
      }
 
      .selected {
           font-weight: 900;
           font-size: 1.5rem;
+          color: inherit;
      }
 
      .not-selected {
-          font-weight: 800;
+          // font-weight: 800;
           color: $primary-color-light;
      }
 }
